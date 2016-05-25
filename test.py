@@ -1,58 +1,83 @@
 import RPi.GPIO as GPIO
 from time import sleep
+import time
 
 # to use Raspberry Pi board pin numbers
 GPIO.setmode(GPIO.BOARD)
  
-# set up the GPIO channels - one input and one output
-GPIO.setup(10, GPIO.OUT)
-GPIO.setup(11, GPIO.OUT)
-GPIO.setup(12, GPIO.OUT)
-
-# output to pin 12
-GPIO.output(12, GPIO.LOW)
-GPIO.output(11, GPIO.LOW)
-GPIO.output(10, GPIO.LOW)
-
-#function = GPIO.gpio_function(12)
-#print function
+# initalise ports as outputs and switch them off
+def initalise_ports():
+    all = ['10','11','12','13','14']
+    for x in all:
+        x = int(x)
+        print (x)
+        GPIO.setup(x, GPIO.OUT)
+        GPIO.output(x, GPIO.LOW)
 
 def test():
-    all = ['10','11','12']
-    for x in all:
-        x = int(x)
-        input_value = GPIO.input(x)
-        print 'value for pin %s is %s' % (x, input_value)
-        #for x in all:
-        if input_value == 0:
-            GPIO.output(x, GPIO.HIGH)
-            input_value = GPIO.input(x)
-            print 'value for pin %s is %s' % (x, input_value)
-        else: 
-            GPIO.output(x, GPIO.LOW)
-            input_value = GPIO.input(x)
-            print 'value for pin %s is %s' % (x, input_value)
+    initalise_ports()
+    count = 0
+    timeout = time.time() + 60*1
+    direction = 'asc'
+    while True:
+        #sequence_gpio(count)
 
-def test1():
-    all = ['10','11','12']
-    last = 0    
-    for x in all:
-        x = int(x)
-        last = int(last)
-        if last is not 0:
-            GPIO.output(x, GPIO.LOW)
-        GPIO.output(x, GPIO.HIGH)
-        input_value = GPIO.input(10)
-        print 'value for pin 10 is %s' % input_value
-        input_value = GPIO.input(11)
-        print 'value for pin 11 is %s' % input_value
-        input_value = GPIO.input(12)
-        print 'value for pin 12 is %s' % input_value
-        sleep (5)
-        last = x
+        if direction == 'asc' and count != 5:
+            count +=1
+            if direction == 'asc' and count == 5:
+                direction = 'desc'
+        elif direction == 'desc' and count != 1:
+            direction = 'desc'
+            count -=1
+            if direction == 'desc' and count == 1:
+                direction = 'asc'
+        sleep (1)
+
+        if time.time() > timeout:
+            break
+
+
+def sequence_gpio(count):
+    if count == 0:
+        GPIO.output(10, GPIO.LOW)
+        GPIO.output(11, GPIO.LOW)
+        GPIO.output(12, GPIO.LOW)
+        GPIO.output(13, GPIO.LOW)
+        GPIO.output(14, GPIO.LOW)
+    elif count == 1:
+        GPIO.output(10, GPIO.HIGH)
+        GPIO.output(11, GPIO.LOW)
+        GPIO.output(12, GPIO.LOW)
+        GPIO.output(13, GPIO.LOW)
+        GPIO.output(14, GPIO.LOW)
+    elif count == 2:
+        GPIO.output(10, GPIO.LOW)
+        GPIO.output(11, GPIO.HIGH)
+        GPIO.output(12, GPIO.LOW)
+        GPIO.output(13, GPIO.LOW)
+        GPIO.output(14, GPIO.LOW)
+    elif count == 3:
+        GPIO.output(10, GPIO.LOW)
+        GPIO.output(11, GPIO.LOW)
+        GPIO.output(12, GPIO.HIGH)
+        GPIO.output(13, GPIO.LOW)
+        GPIO.output(14, GPIO.LOW)
+    elif count == 4:
+        GPIO.output(10, GPIO.LOW)
+        GPIO.output(11, GPIO.LOW)
+        GPIO.output(12, GPIO.LOW)
+        GPIO.output(13, GPIO.HIGH)
+        GPIO.output(14, GPIO.LOW)
+    elif count == 5:
+        GPIO.output(10, GPIO.LOW)
+        GPIO.output(11, GPIO.LOW)
+        GPIO.output(12, GPIO.LOW)
+        GPIO.output(13, GPIO.LOW)
+        GPIO.output(14, GPIO.HIGH)
+
 
 if __name__ == '__main__':
-    test1()
+    test()
 
 
 GPIO.cleanup()
