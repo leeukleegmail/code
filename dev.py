@@ -1,6 +1,6 @@
 from time import sleep
 import time
-
+import subprocess
 
 def test():
     count = 0
@@ -18,7 +18,7 @@ def test():
             count -=1
             if direction == 'desc' and count == 1:
                 direction = 'asc'
-        sleep (1)
+        #sleep (1)
 
         if time.time() > timeout:
             break
@@ -73,8 +73,6 @@ def sequence_test(count):
         print 'value for pin 13 is 0'
         print 'value for pin 14 is 1'
         print '====================='
-
-
 
 
 

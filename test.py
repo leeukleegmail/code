@@ -8,8 +8,9 @@ GPIO.setmode(GPIO.BOARD)
 
 # initalise ports as outputs and switch them off
 def initalise_ports():
-    ports = [10, 11, 12, 13, 14]
+    ports = [10, 11, 12, 13, 21]
     for port in ports:
+	port = int(port)
         GPIO.setup(port, GPIO.OUT)
         GPIO.output(port, GPIO.LOW)
         print "Port %s done" % port
