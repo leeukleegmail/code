@@ -4,15 +4,16 @@ import time
 
 # to use Raspberry Pi board pin numbers
 GPIO.setmode(GPIO.BOARD)
- 
+
+
 # initalise ports as outputs and switch them off
 def initalise_ports():
-    all = ['10','11','12','13','14']
-    for x in all:
-        x = int(x)
-        print (x)
-        GPIO.setup(x, GPIO.OUT)
-        GPIO.output(x, GPIO.LOW)
+    ports = [10, 11, 12, 13, 14]
+    for port in ports:
+        GPIO.setup(port, GPIO.OUT)
+        GPIO.output(port, GPIO.LOW)
+        print "Port %s done" % port
+
 
 def test():
     initalise_ports()
@@ -34,6 +35,7 @@ def test():
         sleep (1)
 
         if time.time() > timeout:
+            GPIO.cleanup()
             break
 
 
@@ -78,6 +80,3 @@ def sequence_gpio(count):
 
 if __name__ == '__main__':
     test()
-
-
-GPIO.cleanup()
