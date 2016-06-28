@@ -2,7 +2,7 @@ import random
 import time
 
 start_time = time.time()
-sentence = "badencryption"
+sentence = "test"
 
 
 def randomletter(numberofletters):
