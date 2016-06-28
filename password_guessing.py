@@ -2,12 +2,7 @@ import random
 import time
 
 start_time = time.time()
-<<<<<<< HEAD:password.py
 sentence = "test"
-=======
-sentence = ""
->>>>>>> 0a2d042f644a2b5405d0476b55e41ab7f7f81f7e:password_guessing.py
-
 
 def randomletter(numberofletters):
 
