@@ -18,7 +18,7 @@ def test():
             count -=1
             if direction == 'desc' and count == 1:
                 direction = 'asc'
-        #sleep (1)
+        sleep (1)
 
         if time.time() > timeout:
             break
