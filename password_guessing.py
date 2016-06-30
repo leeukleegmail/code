@@ -2,8 +2,7 @@ import random
 import time
 
 start_time = time.time()
-sentence = ""
-
+sentence = "test"
 
 def randomletter(numberofletters):
 
