@@ -1,8 +1,11 @@
 import polib
 
 
-def translate_file(language='nl'):
+def translate_file():
+    po = polib.pofile('en.po')
+    count = 1
     out = polib.POFile()
+
     out.metadata = {
     'Project-Id-Version': '1.0',
     'Report-Msgid-Bugs-To': 'you@example.com',
@@ -15,8 +18,6 @@ def translate_file(language='nl'):
     'Content-Transfer-Encoding': '8bit',
     }
 
-    po = polib.pofile('../original.po')
-    count = 1
     for entry in po:
         msgid_org = entry.msgid
         if '.' not in entry.msgid:
