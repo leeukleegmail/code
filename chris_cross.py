@@ -8,7 +8,7 @@ GPIO.setmode(GPIO.BOARD)
 
 # initalise ports as outputs and switch them off
 def initalise_ports():
-    ports = [3,5,7,8,10,12]
+    ports = [3,5,7,8,10,12,16,18,22,24]
     for port in ports:
         port = int(port)
         GPIO.setup(port, GPIO.OUT)
@@ -24,9 +24,9 @@ def test():
     while True:
         sequence_gpio(count)
 
-        if direction == 'asc' and count != 3:
+        if direction == 'asc' and count != 5:
             count +=1
-            if direction == 'asc' and count == 3:
+            if direction == 'asc' and count == 5:
                 direction = 'desc'
         elif direction == 'desc' and count != 1:
             direction = 'desc'
@@ -48,21 +48,55 @@ def sequence_gpio(count):
         GPIO.output(7, GPIO.HIGH)
         GPIO.output(8, GPIO.HIGH)
         GPIO.output(10, GPIO.HIGH)
-        GPIO.output(12, GPIO.LOW)
+        GPIO.output(12, GPIO.HIGH)
+        GPIO.output(16, GPIO.HIGH)
+        GPIO.output(18, GPIO.HIGH)
+        GPIO.output(22, GPIO.HIGH)
+        GPIO.output(24, GPIO.LOW)
     elif count == 2:
         GPIO.output(3, GPIO.HIGH)
         GPIO.output(5, GPIO.LOW)
         GPIO.output(7, GPIO.HIGH)
         GPIO.output(8, GPIO.HIGH)
-        GPIO.output(10, GPIO.LOW)
+        GPIO.output(10, GPIO.HIGH)
         GPIO.output(12, GPIO.HIGH)
+        GPIO.output(16, GPIO.HIGH)
+        GPIO.output(18, GPIO.HIGH)
+        GPIO.output(22, GPIO.LOW)
+        GPIO.output(24, GPIO.HIGH)
     elif count == 3:
         GPIO.output(3, GPIO.HIGH)
         GPIO.output(5, GPIO.HIGH)
         GPIO.output(7, GPIO.LOW)
+        GPIO.output(8, GPIO.HIGH)
+        GPIO.output(10, GPIO.HIGH)
+        GPIO.output(12, GPIO.HIGH)
+        GPIO.output(16, GPIO.HIGH)
+        GPIO.output(18, GPIO.LOW)
+        GPIO.output(22, GPIO.HIGH)
+        GPIO.output(24, GPIO.HIGH)
+    elif count == 4:
+        GPIO.output(3, GPIO.HIGH)
+        GPIO.output(5, GPIO.HIGH)
+        GPIO.output(7, GPIO.HIGH)
         GPIO.output(8, GPIO.LOW)
         GPIO.output(10, GPIO.HIGH)
         GPIO.output(12, GPIO.HIGH)
+        GPIO.output(16, GPIO.LOW)
+        GPIO.output(18, GPIO.HIGH)
+        GPIO.output(22, GPIO.HIGH)
+        GPIO.output(24, GPIO.HIGH)
+    elif count == 5:
+        GPIO.output(3, GPIO.HIGH)
+        GPIO.output(5, GPIO.HIGH)
+        GPIO.output(7, GPIO.HIGH)
+        GPIO.output(8, GPIO.HIGH)
+        GPIO.output(10, GPIO.LOW)
+        GPIO.output(12, GPIO.LOW)
+        GPIO.output(16, GPIO.HIGH)
+        GPIO.output(18, GPIO.HIGH)
+        GPIO.output(22, GPIO.HIGH)
+        GPIO.output(24, GPIO.HIGH)
 
 
 if __name__ == '__main__':
