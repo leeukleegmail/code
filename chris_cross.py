@@ -4,7 +4,7 @@ import time
 
 # to use Raspberry Pi board pin numbers
 GPIO.setmode(GPIO.BOARD)
-
+GPIO.setwarnings(False)
 
 # initalise ports as outputs and switch them off
 def initalise_ports():
@@ -13,7 +13,7 @@ def initalise_ports():
         port = int(port)
         GPIO.setup(port, GPIO.OUT)
         GPIO.output(port, GPIO.HIGH)
-        print "Port %s done" % port
+        #print "Port %s done" % port
 
 
 def test():
@@ -33,9 +33,9 @@ def test():
             count -=1
             if direction == 'desc' and count == 1:
                 direction = 'asc'
-        print count
-        #time.sleep (50.0 / 1000.0);
-        sleep (1)
+        #print count
+        time.sleep (50.0 / 1000.0);
+        #sleep (1)
         if time.time() > timeout:
             GPIO.cleanup()
             break
