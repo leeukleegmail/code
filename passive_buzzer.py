@@ -1,6 +1,6 @@
 # Benoetigte Module werden importiert und eingerichtet
 import RPi.GPIO as GPIO
-GPIO.setmode(GPIO.)
+GPIO.setmode(GPIO.BOARD)
 # Hier wird der Ausgangs-Pin deklariert, an dem der Buzzer angeschlossen ist.
 GPIO_PIN = 37
 GPIO.setup(GPIO_PIN, GPIO.OUT)
