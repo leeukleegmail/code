@@ -8,6 +8,8 @@ GPIO.setwarnings(False)
 
 # initalise ports as outputs and switch them off
 def initalise_ports():
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setwarnings(False)
     ports = [29,31,7,33,10,12,16,18,22,24]
     for port in ports:
         port = int(port)
@@ -18,7 +20,7 @@ def initalise_ports():
 def test():
     initalise_ports()
     count = 0
-    timeout = time.time() + 30*1
+    timeout = time.time() + 20*1
     direction = 'asc'
     while True:
         sequence_gpio(count)
