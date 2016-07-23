@@ -53,7 +53,7 @@ def sequence_gpio(count):
         GPIO.output(10, GPIO.HIGH)
         GPIO.output(12, GPIO.HIGH)
         GPIO.output(16, GPIO.HIGH)
-        GPIO.output(133, GPIO.HIGH)
+        GPIO.output(18, GPIO.HIGH)
         GPIO.output(22, GPIO.HIGH)
         GPIO.output(24, GPIO.LOW)
     elif count == 2:
@@ -64,7 +64,7 @@ def sequence_gpio(count):
         GPIO.output(10, GPIO.HIGH)
         GPIO.output(12, GPIO.HIGH)
         GPIO.output(16, GPIO.HIGH)
-        GPIO.output(133, GPIO.HIGH)
+        GPIO.output(18, GPIO.HIGH)
         GPIO.output(22, GPIO.LOW)
         GPIO.output(24, GPIO.HIGH)
     elif count == 3:
@@ -75,7 +75,7 @@ def sequence_gpio(count):
         GPIO.output(10, GPIO.HIGH)
         GPIO.output(12, GPIO.HIGH)
         GPIO.output(16, GPIO.HIGH)
-        GPIO.output(133, GPIO.LOW)
+        GPIO.output(18, GPIO.LOW)
         GPIO.output(22, GPIO.HIGH)
         GPIO.output(24, GPIO.HIGH)
     elif count == 4:
@@ -86,7 +86,7 @@ def sequence_gpio(count):
         GPIO.output(10, GPIO.HIGH)
         GPIO.output(12, GPIO.HIGH)
         GPIO.output(16, GPIO.LOW)
-        GPIO.output(133, GPIO.HIGH)
+        GPIO.output(18, GPIO.HIGH)
         GPIO.output(22, GPIO.HIGH)
         GPIO.output(24, GPIO.HIGH)
     elif count == 5:
@@ -94,10 +94,10 @@ def sequence_gpio(count):
         GPIO.output(31, GPIO.HIGH)
         GPIO.output(7, GPIO.HIGH)
         GPIO.output(33, GPIO.HIGH)
-        GPIO.output(10, GPIO.HIGH)
+        GPIO.output(10, GPIO.LOW)
         GPIO.output(12, GPIO.LOW)
         GPIO.output(16, GPIO.HIGH)
-        GPIO.output(133, GPIO.HIGH)
+        GPIO.output(18, GPIO.HIGH)
         GPIO.output(22, GPIO.HIGH)
         GPIO.output(24, GPIO.HIGH)
 
