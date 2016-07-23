@@ -15,8 +15,8 @@ adc = Adafruit_ADS1x15.ADS1115(address=0x49, busnum=1)
 # See table 3 in the ADS1015/ADS1115 datasheet for more info on gain.
 GAIN = 8
 
-try:
-    while True:
+while True:
+    try:
         read = adc.read_adc(0, gain=GAIN)
         print(read)
         print time.strftime("%Y-%m-%d %H:%M")
@@ -24,4 +24,5 @@ try:
             print(read)
             nightrider.test()
         time.sleep(60)
-except KeyboardInterrupt:
+    except KeyboardInterrupt:
+        print ("ended")
