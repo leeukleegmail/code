@@ -12,10 +12,10 @@ pwm.start(50)
 # Bis dahin wird der Buzzer mit der vorher eingegebenen Freuqenz betrieben (Startwert 500Hz)
 try:
     while(True):
-    print "----------------------------------------"
-    print "Aktuelle Frequenz: %d" % Frequenz
-    Frequenz = input("Bitte neue Frequenz eingeben (50-5000):")
-    pwm.ChangeFrequency(Frequenz)
+        print "----------------------------------------"
+        print "Aktuelle Frequenz: %d" % Frequenz
+        Frequenz = input("Bitte neue Frequenz eingeben (50-5000):")
+        pwm.ChangeFrequency(Frequenz)
 # Aufraeumarbeiten nachdem das Programm beendet wurde
 except KeyboardInterrupt:
     GPIO.cleanup()
