@@ -17,11 +17,10 @@ GAIN = 8
 
 while True:
     try:
-        read = adc.read_adc(0, gain=GAIN)
-        print(read)
+        value = adc.read_adc(0, gain=GAIN)
         now = time.strftime("%Y-%m-%d %H:%M")
-        print ("At %s value is %s" % now, read)
-        if read < 7000:
+        print ("At %s value is %s" % (now, value))
+        if value < 7000:
             nightrider.test()
         time.sleep(60)
     except KeyboardInterrupt:
