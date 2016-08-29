@@ -18,10 +18,13 @@ def get_ip_address(ifname):
         struct.pack('256s', ifname[:15])
     )[20:24])
 
-lcd.write_string("IP Address:") 
+lcd.write_string("Rachael Parker") 
 
 lcd.cursor_pos = (1, 0)
-lcd.write_string(get_ip_address('eth0'))
+lcd.write_string("Proper stinks")
+
+lcd.cursor_pos = (2, 0)
+lcd.write_string("Not even joking!!!!")
 
 #lcd.cursor_pos = (2, 0)
 #current_time = time.strftime("%Y-%m-%d %H:%M")
@@ -40,13 +43,5 @@ smiley = (
 )
 lcd.create_char(0, smiley)
 lcd.write_string(unichr(0))
-
-while True:
-    lcd.cursor_pos = (2, 0)
-    current_time = time.strftime("%Y-%m-%d %H:%M:%S")
-    #current_time = time.strftime("%a, %d %b %Y %X", time.localtime())    
-    #cet = pytz.timezone('CET')    
-    lcd.write_string(current_time)
-    time.sleep(1)
 
 

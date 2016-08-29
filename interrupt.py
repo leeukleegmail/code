@@ -10,31 +10,25 @@ GPIO.setup(40, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 dac = Adafruit_MCP4725.MCP4725()
 
-def my_callback(channel):
+def my_callback():
     print "falling edge detected on 40"
     voltage = 4000
+    dac.set_voltage(voltage)
+    sleep(10)
+    while voltage >= 2000:
+        sleep(0.1)
+        voltage = (voltage - 25)
         dac.set_voltage(voltage)
-        sleep(10)
-        while voltage >= 2000:
-            sleep(0.1)
-            voltage = (voltage - 50)
-            dac.set_voltage(voltage)
 
 #GPIO.add_event_detect(40, GPIO.FALLING, callback=my_callback, bouncetime=300)
 
-voltage = 4000
+#voltage = 4000
 #dac.set_voltage(voltage)
 
 while True:
     try:  
         GPIO.wait_for_edge(40, GPIO.FALLING)  
-#        voltage = 4000        
-#        dac.set_voltage(voltage)
-#        sleep(10)
-#        while voltage >= 2000:
-#            sleep(0.1)
-#            voltage = (voltage - 50)
-#            dac.set_voltage(voltage)
+        my_callback()
     except KeyboardInterrupt:  
         GPIO.cleanup()       # clean up GPIO on CTRL+C exit  
 GPIO.cleanup()           # clean up GPIO on normal exit  

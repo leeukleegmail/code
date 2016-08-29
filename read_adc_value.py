@@ -21,7 +21,7 @@ while True:
         now = time.strftime("%Y-%m-%d %H:%M")
         print ("At %s value is %s" % (now, value))
         if value < 7000:
-            nightrider.test()
-        time.sleep(60)
+            #nightrider.test()
+            time.sleep(5)
     except KeyboardInterrupt:
         print ("ended")
